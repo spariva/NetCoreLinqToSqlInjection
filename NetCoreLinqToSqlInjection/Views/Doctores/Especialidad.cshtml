@@ -1,0 +1,50 @@
+﻿@model List<Doctor>
+
+@{
+    List<string> especialidades = (List<string>)ViewBag.especialidades;
+}
+
+<h1>Especialidades</h1>
+<form method="post" id="especialidadForm">
+    <select name="especialidad" onchange="document.getElementById('especialidadForm').submit()">
+        @foreach (string esp in especialidades)
+        {
+            <option value="@esp">@esp</option>
+        }
+    </select>
+</form>
+
+@if(Model != null)
+{
+    <h3>Doctores</h3>
+    <table class="d-lg-table table-active">
+        <thead>
+            <tr>
+                <th>DoctorId</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Especialidad></th>
+                <th>Salario</th>
+                <th>Hospital</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doctor in Model)
+            {
+                <tr>
+                    <td>@doctor.IdDoctor</td>
+                    <td>@doctor.Apellido</td>
+                    <td>@doctor.Especialidad</td>
+                    <td>@doctor.Salario</td>
+                    <td>@doctor.IdHospital</td>
+                    <td>
+                        <a asp-action="Delete" asp-controller="Doctores" asp-route-iddoctor="@doctor.IdDoctor" class="btn btn-danger">Eliminar</a>
+                        <a asp-action="Update" asp-controller="Doctores" asp-route-iddoctor="@doctor.IdDoctor" class="btn btn-warning">Update</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

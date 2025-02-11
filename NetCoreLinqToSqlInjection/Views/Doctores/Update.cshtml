@@ -1,0 +1,24 @@
+﻿@model Doctor
+
+<h3>Update Doctor</h3>
+<form method="post">
+    <input type="hidden" value="@Model.IdDoctor" name="iddoctor"/>
+    <div class="form-group">
+        <label for="apellido">apellido</label>
+        <input for="apellido" class="form-control" value="@Model.Apellido" name="apellido"/>
+    </div>
+    <div class="form-group">
+        <label for="especialidad"></label>
+        <input for="especialidad" class="form-control" value="@Model.Especialidad" name="especialidad"/>
+    </div>
+    <div class="form-group">
+        <label for="salario"></label>
+        <input for="salario" class="form-control" value="@Model.Salario" name="salario"/>
+    </div>
+    <div class="form-group">
+        <label for="idhospital"></label>
+        <input for="idhospital" class="form-control" value="@Model.IdHospital" name="idhospital"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" asp-controller="Doctores" class="btn btn-secondary">Back to List</a>
+</form>

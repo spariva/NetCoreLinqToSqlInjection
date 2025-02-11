@@ -16,8 +16,8 @@ coche.VelocidadMaxima = 200;
 //builder.Services.AddSingleton<ICoche, Deportivo>();
 builder.Services.AddSingleton<ICoche, Coche>(c => coche);
 
-builder.Services.AddTransient<IRepositoryDoctores, RepositoryDoctoresSQLServer>();
-//builder.Services.AddTransient<IRepositoryDoctores, RepositoryDoctoresOracle>();
+//builder.Services.AddTransient<IRepositoryDoctores, RepositoryDoctoresSQLServer>();
+builder.Services.AddTransient<IRepositoryDoctores, RepositoryDoctoresOracle>();
 
 
 var app = builder.Build();
